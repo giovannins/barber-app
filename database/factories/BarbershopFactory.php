@@ -22,8 +22,8 @@ class BarbershopFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'address' => $this->faker->address,
             'employee_limit' => $this->faker->numberBetween(5, 20),
-            'banner' => $this->faker->imageUrl(width: 1200, height: 400,),
-            'icon' => $this->faker->imageUrl(width: 64, height:64, randomize: false),
+            'banner' => $this->faker->imageUrl(width: 1200, height: 400, randomize: false, format:'webp'),
+            'icon' => $this->faker->imageUrl(width: 64, height:64, randomize: false, format:'webp'),
             'color' => $this->faker->hexColor,
         ];
     }

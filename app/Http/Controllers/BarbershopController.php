@@ -42,7 +42,11 @@ class BarbershopController extends Controller
      */
     public function show(Barbershop $barbershop)
     {
-        return Inertia::render("SuperAdmin/Barbershops/Show", ['barbershop' => $barbershop, 'employees' => $barbershop->employees]);
+        return Inertia::render("SuperAdmin/Barbershops/Show",
+            ['barbershop' => $barbershop,
+                    'employees' => $barbershop->employees,
+                    'services' => $barbershop->services,
+                ]);
     }
 
     /**

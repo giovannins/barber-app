@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Barbershop;
 use App\Models\Employee;
+use App\Models\Service;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        $records = 16;
 
         User::factory()->create([
             'name' => 'Test User',
@@ -23,7 +25,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        Barbershop::factory()->createMany(16);
-        Employee::factory()->createMany(16*16);
+        Barbershop::factory()->createMany($records);
+        Employee::factory()->createMany($records**2);
+        Service::factory()->createMany($records**2);
     }
 }

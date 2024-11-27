@@ -8,19 +8,28 @@ defineProps({
         type: Object,
         required: true,
     },
+    employees: {
+        type: Array,
+        required: true,
+    },
 });
 </script>
 
 <template>
     <SuperAdminLayout>
         <div class="container mx-auto mt-8">
-            <section class="grid grid-cols-2 gap-4 ">
-                <div class="card bg-base-100 w-96 shadow-xl" id="barbershop-info">
+            <section class="flex flex-col gap-4 md:gap-8">
+                <div
+                    class="card card-bordered bg-base-100 w-full shadow-xl"
+                    id="barbershop-info"
+                >
                     <figure>
                         <img :src="barbershop.banner" :alt="barbershop.name" />
                     </figure>
                     <div class="card-body">
-                        <h2 class="card-title">{{ barbershop.name }}</h2>
+                        <h2 class="card-title">
+                            <img :src="barbershop.icon" :alt="barbershop.name" width="48" height="48">
+                            {{ barbershop.name }}</h2>
                         <div
                             class="p-1"
                             :style="{
@@ -49,31 +58,44 @@ defineProps({
                         </div>
                     </div>
                 </div>
-                <div class="w-96" id="barbershop-employees">
-                    <h2 class="my-4 text-lg font-bold">Employees</h2>
-                    <table class="table table-zebra">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Role</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>John Doe</td>
-                                <td>John Doe</td>
-                                <td>John Doe</td>
-                                <td>John Doe</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div
+                    class="card card-bordered bg-base-100 w-full shadow-xl"
+                    id="barbershop-employees"
+                >
+                    <div class="card-body h-96 overflow-y-auto">
+                        <h2 class="card-title">Employees</h2>
+                        <table class="table table-zebra">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Speciality</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="employee in employees" :key="employee.id">
+                                    <td>{{ employee.name }}</td>
+                                    <td>{{ employee.phone }}</td>
+                                    <td>{{ employee.speciality }}</td>
+                                    <td>
+                                        <Link>
+                                            <Button>View</Button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div>a</div>
-                <div>a</div>
+                <div class="card card-bordered bg-base-100 w-full shadow-xl"><div class="card-body">
+                    <h2 class="card-title">lorem</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam odit hic quas suscipit ipsam architecto autem qui, itaque officia aperiam facere eveniet adipisci corporis aspernatur, amet exercitationem voluptatum nemo.
+                </div></div>
+                <div class="card card-bordered bg-base-100 w-full shadow-xl"><div class="card-body">
+                    <h2 class="card-title">lorem</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam odit hic quas suscipit ipsam architecto autem qui, itaque officia aperiam facere eveniet adipisci corporis aspernatur, amet exercitationem voluptatum nemo.
+                </div></div>
             </section>
         </div>
     </SuperAdminLayout>

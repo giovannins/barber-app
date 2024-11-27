@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Barbershop;
+use App\Models\Employee;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Barbershop::factory()->createMany(16);
+        Employee::factory()->createMany(16*16);
     }
 }

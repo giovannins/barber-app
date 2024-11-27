@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarbershopController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/dashboard/super_admin/barbershops', [BarbershopController::class,'index'])->name('super_admin.barbershops.index');
+Route::get('/dashboard/super_admin/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('super_admin.barbershops.show');
+Route::get('/dashboard/super_admin/barbershops/{barbershop}/edit', [BarbershopController::class,'edit'])->name('super_admin.barbershops.edit');
+Route::put('/dashboard/super_admin/barbershops/{barbershop}/update', [BarbershopController::class,'update'])->name('super_admin.barbershops.update');

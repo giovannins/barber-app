@@ -11,4 +11,15 @@ class Barbershop extends Model
 {
     /** @use HasFactory<\Database\Factories\BarbershopFactory> */
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'phone',
+        'email',
+        'address',
+        'employee_limit',
+        'banner',
+        'icon',
+        'color',
+    ];
 }

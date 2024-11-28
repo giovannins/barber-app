@@ -20,6 +20,12 @@ defineProps({
     },
 });
 
+const emit = defineEmits(["click"]);
+
+const handleClick = (event) => {
+    emit("click", event);
+};
+
 const btnColor = ref({
     primary: "btn-primary",
     secondary: "btn-secondary",

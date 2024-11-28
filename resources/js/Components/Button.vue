@@ -8,13 +8,17 @@ defineProps({
     },
     color: {
         type: String,
-        default: "primary",
+        default: "",
     },
     size: {
         type: String,
         default: "md",
     },
     disabled: {
+        type: Boolean,
+        default: false,
+    },
+    active: {
         type: Boolean,
         default: false,
     },
@@ -27,6 +31,7 @@ const handleClick = (event) => {
 };
 
 const btnColor = ref({
+    '': '',
     primary: "btn-primary",
     secondary: "btn-secondary",
     neutral: "btn-neutral",
@@ -45,12 +50,17 @@ const btnSize = ref({
     md: "",
     lg: "btn-lg",
 });
-
-
 </script>
 
 <template>
-    <button :type="type" :class="`btn ${btnColor[color]} ${btnSize[size]} mx-1`" @click="handleClick" :disabled="disabled">
+    <button
+        :type="type"
+        :class="`btn ${btnColor[color]} ${btnSize[size]} mx-1 ${
+            active === true ? 'btn-active' : ''
+        }`"
+        @click="handleClick"
+        :disabled="disabled"
+    >
         <slot></slot>
     </button>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 import Button from "@/Components/Button.vue";
-import TrashBin from "@/Components/Icons/TrashBin.vue";
+import Pen from "@/Components/Icons/Pen.vue";
 import { Link } from "@inertiajs/vue3";
 
 defineProps({
@@ -19,35 +19,27 @@ defineProps({
         <div class="card-body">
             <h2 class="card-title">Services</h2>
             <div>
-                <table class="table table-zebra table-pin-rows">
+                <table class="table table-zebra table-pin-rows table-xs md:table-md">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th class="hidden md:table-cell">Description</th>
                             <th>Price</th>
-                            <th>Time</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="service in services" :key="service.id">
-                            <td>
-                                <img
-                                    :src="service.photo"
-                                    :alt="service.name"
-                                    width="128"
-                                />
-                            </td>
                             <td>{{ service.name }}</td>
-                            <td class="w-2/5">
+                            <td class="hidden md:table-cell md:w-1/2">
                                 {{ service.description }}
                             </td>
                             <td>R$ {{ service.price }}</td>
-                            <td>{{ service.time }} minutes</td>
                             <td>
                                 <Link>
-                                    <Button color="warning">Edit</Button>
+                                    <Button color="warning">
+                                        <Pen />
+                                        Edit</Button>
                                 </Link>
                             </td>
                         </tr>

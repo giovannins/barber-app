@@ -27,28 +27,44 @@ const selectedView = ref(0);
 const changeView = (index) => {
     selectedView.value = index;
 };
-
 </script>
-
 
 <template>
     <SuperAdminLayout>
-        <div class="container mx-auto mt-8 px-2 md:px-4">
-            <section
-                class="grid grid-cols-1 md:grid-cols-6 gap-4"
-            >
-                <div class="flex flex-row flex-nowrap" id="nav">
-                    <nav class="flex flex-col gap-4 md:gap-8">
-                        <Button color="ghost" v-on:click="changeView(0)">Barbershop Info</Button>
-                        <Button color="ghost" v-on:click="changeView(1)">Employees</Button>
-                        <Button color="ghost" v-on:click="changeView(2)">Services</Button>
+        <div class="container mx-auto mt-8 px-2">
+            <section class="grid grid-cols-1 md:grid-cols-6 gap-4">
+                <div class="col-span-12 md:col-auto" id="nav">
+                    <nav class="flex flex-col gap-4">
+                        <Button
+                            :active="selectedView === 0 ? true : false"
+                            v-on:click="changeView(0)"
+                            >Barbershop Info</Button
+                        >
+                        <Button
+                            :active="selectedView === 1 ? true : false"
+                            v-on:click="changeView(1)"
+                            >Employees</Button
+                        >
+                        <Button
+                            :active="selectedView === 2 ? true : false"
+                            v-on:click="changeView(2)"
+                            >Services</Button
+                        >
                     </nav>
-                    <div class="divider lg:divider-horizontal"></div>
                 </div>
-                <div class="col-span-4">
-                    <BarbershopCard :barbershop="barbershop" v-if="selectedView == 0" />
-                    <EmployeesCard :employees="employees" v-if="selectedView == 1"/>
-                    <ServicesCard :services="services" v-if="selectedView == 2"/>
+                <div class="md:col-span-5 col-span-12">
+                    <BarbershopCard
+                        :barbershop="barbershop"
+                        v-if="selectedView == 0"
+                    />
+                    <EmployeesCard
+                        :employees="employees"
+                        v-if="selectedView == 1"
+                    />
+                    <ServicesCard
+                        :services="services"
+                        v-if="selectedView == 2"
+                    />
                 </div>
             </section>
         </div>

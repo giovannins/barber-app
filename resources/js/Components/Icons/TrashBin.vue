@@ -1,0 +1,41 @@
+<script setup>
+defineProps({
+    width: {
+        type: String,
+        default: "16",
+    },
+    height: {
+        type: String,
+        default: "16",
+    },
+    color: {
+        type: String,
+        default: "#000000",
+    },
+});
+</script>
+
+<template>
+    <svg
+        :width="width"
+        :height="height"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M4 2H1V4H15V2H12V0H4V2Z" :fill="color"></path>
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3 6H13V16H3V6ZM7 9H9V13H7V9Z"
+                :fill="color"
+            ></path>
+        </g>
+    </svg>
+</template>

@@ -1,10 +1,6 @@
 <script setup>
 defineProps({
-    width: {
-        type: String,
-        default: "16",
-    },
-    height: {
+    size: {
         type: String,
         default: "16",
     },
@@ -17,8 +13,8 @@ defineProps({
 
 <template>
     <svg
-        :width="width"
-        :height="height"
+        :width="size"
+        :height="size"
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
     >

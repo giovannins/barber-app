@@ -36,7 +36,7 @@ defineProps({
                             <td class="hidden md:table-cell">{{ employee.speciality }}</td>
                             <td>
                                 <Link>
-                                    <Button>
+                                    <Button color="primary">
                                         <LinesMagnifying color="oklch(var(--pc))"/>
                                         Details</Button>
                                 </Link>

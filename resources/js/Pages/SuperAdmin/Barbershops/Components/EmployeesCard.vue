@@ -35,7 +35,7 @@ defineProps({
                             <td class="hidden md:table-cell">{{ employee.phone }}</td>
                             <td class="hidden md:table-cell">{{ employee.speciality }}</td>
                             <td>
-                                <Link>
+                                <Link :href="route('super_admin.employees.show', employee.id)">
                                     <Button color="primary">
                                         <LinesMagnifying color="oklch(var(--pc))"/>
                                         Details</Button>

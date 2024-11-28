@@ -1,5 +1,7 @@
 <script setup>
 import Button from "@/Components/Button.vue";
+import LinesMagnifying from "@/Components/Icons/LinesMagnifying.vue";
+import Pen from "@/Components/Icons/Pen.vue";
 import SuperAdminLayout from "@/Layouts/SuperAdminLayout.vue";
 import { Link } from "@inertiajs/vue3";
 
@@ -49,7 +51,9 @@ console.log(route());
                                 )
                             "
                         >
-                            <Button>Details</Button>
+                            <Button color="primary">
+                                <LinesMagnifying color="oklch(var(--pc))"/>
+                                Details</Button>
                         </Link>
                         <Link
                             :href="
@@ -59,7 +63,9 @@ console.log(route());
                                 )
                             "
                         >
-                            <Button color="warning">Edit</Button>
+                            <Button color="warning">
+                                <Pen/>
+                                Edit</Button>
                         </Link>
                     </td>
                 </tr>

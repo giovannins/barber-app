@@ -1,5 +1,6 @@
 <script setup>
 import Button from "@/Components/Button.vue";
+import Input from "@/Components/Input.vue";
 import SuperAdminLayout from "@/Layouts/SuperAdminLayout.vue";
 import { useForm } from "@inertiajs/vue3";
 
@@ -36,161 +37,79 @@ const form = useForm({
             <h2 class="text-xl font-bold text-center">Edit: {{ barbershop.name }}</h2>
             <form @submit.prevent="submitForm" class="space-y-4">
 
-                <div class="form-control">
-                    <label for="name" class="label">
-                        <span class="label-text">Nome:</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        v-model="form.name"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o nome"
-                    />
-                    <span
-                        v-if="form.errors.name"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.name }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Barbershop's name"
+                    id="name"
+                    label="Name"
+                    v-model="form.name"
+                />
 
-                <div class="form-control">
-                    <label for="phone" class="label">
-                        <span class="label-text">Phone:</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="phone"
-                        v-model="form.phone"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Phone"
-                    />
-                    <span
-                        v-if="form.errors.phone"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.phone }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Phone"
+                    id="phone"
+                    label="Phone"
+                    v-model="form.phone"
+                    type="text"
+                    :error="form.errors.phone"
+                />
 
-                <div class="form-control">
-                    <label for="email" class="label">
-                        <span class="label-text">Email:</span>
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        v-model="form.email"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Email"
-                    />
-                    <span
-                        v-if="form.errors.email"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.email }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Email"
+                    id="email"
+                    label="Email"
+                    v-model="form.email"
+                    type="email"
+                    :error="form.errors.email"
+                />
 
-                <div class="form-control">
-                    <label for="address" class="label">
-                        <span class="label-text">Address:</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="address"
-                        v-model="form.address"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Address"
-                    />
-                    <span
-                        v-if="form.errors.address"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.address }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Address"
+                    id="address"
+                    label="Address"
+                    v-model="form.address"
+                    type="text"
+                    :error="form.errors.address"
+                />
 
-                <div class="form-control">
-                    <label for="employee_limit" class="label">
-                        <span class="label-text">Employee Limit:</span>
-                    </label>
-                    <input
-                        type="number"
-                        id="employee_limit"
-                        v-model="form.employee_limit"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Employee Limit"
-                    />
-                    <span
-                        v-if="form.errors.employee_limit"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.employee_limit }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Employee Limit"
+                    id="employee_limit"
+                    label="Employee Limit"
+                    v-model="form.employee_limit"
+                    type="number"
+                    :error="form.errors.employee_limit"
+                />
 
-                <div class="form-control">
-                    <label for="banner" class="label">
-                        <span class="label-text">Banner:</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="banner"
-                        v-model="form.banner"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Banner"
-                    />
-                    <span
-                        v-if="form.errors.banner"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.banner }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Banner"
+                    id="banner"
+                    label="Banner"
+                    v-model="form.banner"
+                    type="text"
+                    :error="form.errors.banner"
+                />
 
-                <div class="form-control">
-                    <label for="icon" class="label">
-                        <span class="label-text">Icon:</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="icon"
-                        v-model="form.icon"
-                        class="input input-bordered w-full"
-                        placeholder="Digite o Icon"
-                    />
-                    <span
-                        v-if="form.errors.icon"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.icon }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Icon"
+                    id="icon"
+                    label="Icon"
+                    v-model="form.icon"
+                    type="text"
+                    :error="form.errors.icon"
+                />
 
-                <div class="form-control">
-                    <label for="color" class="label">
-                        <span class="label-text">Color:</span>
-                    </label>
-                    <input
-                        :style="{backgroundColor: form.color}"
-                        type="color"
-                        id="color"
-                        v-model="form.color"
-                        class="input border-none w-full"
-                        placeholder="Digite o Color"
-                    />
-                    <span
-                        v-if="form.errors.color"
-                        class="text-error text-sm mt-1"
-                    >
-                        {{ form.errors.color }}
-                    </span>
-                </div>
+                <Input
+                    placeholder="Digite o Color"
+                    id="color"
+                    label="Color"
+                    v-model="form.color"
+                    type="color"
+                    :error="form.errors.color"
+                    :style="{backgroundColor: form.color}"
+                />
 
                 <!-- Botão de Enviar -->
-                <Button type="submit" class="w-full">
+                <Button color="warning" type="submit" class="w-full">
                     Atualizar
                 </Button>
             </form>

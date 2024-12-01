@@ -1,5 +1,6 @@
 <script setup>
 import Button from "@/Components/Button.vue";
+import FloppyDisk from "@/Components/Icons/FloppyDisk.vue";
 import Input from "@/Components/Input.vue";
 import SuperAdminLayout from "@/Layouts/SuperAdminLayout.vue";
 import { useForm } from "@inertiajs/vue3";
@@ -45,7 +46,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Phone"
+                    placeholder="Enter Phone"
                     id="phone"
                     label="Phone"
                     v-model="form.phone"
@@ -54,7 +55,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Email"
+                    placeholder="Enter Email"
                     id="email"
                     label="Email"
                     v-model="form.email"
@@ -63,7 +64,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Address"
+                    placeholder="Enter Address"
                     id="address"
                     label="Address"
                     v-model="form.address"
@@ -72,7 +73,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Employee Limit"
+                    placeholder="Enter Employee Limit"
                     id="employee_limit"
                     label="Employee Limit"
                     v-model="form.employee_limit"
@@ -81,7 +82,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Banner"
+                    placeholder="Enter Banner"
                     id="banner"
                     label="Banner"
                     v-model="form.banner"
@@ -90,7 +91,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Icon"
+                    placeholder="Enter Icon"
                     id="icon"
                     label="Icon"
                     v-model="form.icon"
@@ -99,7 +100,7 @@ const form = useForm({
                 />
 
                 <Input
-                    placeholder="Digite o Color"
+                    placeholder="Enter Color"
                     id="color"
                     label="Color"
                     v-model="form.color"
@@ -110,7 +111,8 @@ const form = useForm({
 
                 <!-- Botão de Enviar -->
                 <Button color="warning" type="submit" class="w-full">
-                    Atualizar
+                    <FloppyDisk />
+                    Update
                 </Button>
             </form>
         </div>

@@ -1,5 +1,5 @@
 <script setup>
-import { useAttrs } from 'vue';
+import { useAttrs } from "vue";
 
 const props = defineProps({
     id: {
@@ -12,27 +12,31 @@ const props = defineProps({
     },
     placeholder: {
         type: String,
-        default: 'Type here',
+        default: "Type here",
     },
     type: {
         type: String,
-        default: 'text',
+        default: "text",
     },
     icon: {
         type: String,
-        default: '',
+        default: "",
     },
     modelValue: {
-        default: '',
+        type: String,
+        default: "",
+    },
+    error: {
+        type: String,
+        default: "",
     },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(["update:modelValue"]);
 
 const updateValue = (event) => {
-    emit('update:modelValue', event.target.value);
+    emit("update:modelValue", event.target.value);
 };
-
 </script>
 
 <template>
@@ -48,5 +52,8 @@ const updateValue = (event) => {
             @input="updateValue"
             class="input input-bordered w-full max-w-xs"
         />
+        <div class="label">
+            <span class="label-text-alt text-error">{{ error }}</span>
+        </div>
     </label>
 </template>

@@ -39,7 +39,7 @@ defineProps({
                                         employee.barbershop_id
                                     )
                                 "
-                                ><Button color="warning">
+                                ><Button color="ghost">
                                     <BackArrow />
                                     Back</Button></Link
                             >

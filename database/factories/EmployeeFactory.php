@@ -22,6 +22,7 @@ class EmployeeFactory extends Factory
             'speciality' => $this->faker->word(),
             'hire_date' => $this->faker->date(),
             'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->safeEmail(),
         ];
     }
 }

@@ -53,7 +53,7 @@ const updateValue = (event) => {
             :value="modelValue"
             @input="updateValue"
             :disabled="disabled"
-            class="input input-bordered w-full max-w-xs"
+            class="input input-bordered w-full"
         />
         <div class="label">
             <span class="label-text-alt text-error">{{ error }}</span>

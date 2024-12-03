@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
+use Inertia\Inertia;
 
 class EmployeeController extends Controller
 {
@@ -13,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        return Inertia::render("SuperAdmin/Employees/Index", ['employees' => $employees]);
     }
 
     /**
@@ -37,7 +39,9 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return Inertia::render('SuperAdmin/Employees/Show', [
+            'employee' => $employee,
+        ]);
     }
 
     /**
@@ -45,7 +49,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return Inertia::render('SuperAdmin/Employees/Edit', [
+            'employee' => $employee,
+        ]);
     }
 
     /**
@@ -53,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+       dd($request->validated());
     }
 
     /**

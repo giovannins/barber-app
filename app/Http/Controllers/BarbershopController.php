@@ -71,6 +71,6 @@ class BarbershopController extends Controller
      */
     public function destroy(Barbershop $barbershop)
     {
-        //
+        $barbershop->delete();
     }
 }

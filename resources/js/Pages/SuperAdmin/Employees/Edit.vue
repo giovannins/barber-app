@@ -83,29 +83,6 @@ const viewForm = () => {
                         v-model="form.hire_date"
                         :error="form.errors.hire_date"
                     />
-                    <Input
-                        placeholder="Employee's email"
-                        id="email"
-                        label="Email"
-                        v-model="form.email"
-                        :error="form.errors.email"
-                    />
-                    <Input
-                        placeholder="Choose a password"
-                        id="password"
-                        label="Password"
-                        type="password"
-                        v-model="form.password"
-                        :error="form.errors.password"
-                    />
-                    <Input
-                        placeholder="Confirm the password"
-                        id="password_confirmation"
-                        label="Password Confirmation"
-                        type="password"
-                        v-model="form.password_confirmation"
-                        :error="form.errors.password_confirmation"
-                    />
                 </div>
 
                 <div>

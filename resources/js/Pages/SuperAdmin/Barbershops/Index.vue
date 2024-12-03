@@ -11,8 +11,6 @@ defineProps({
         required: true,
     },
 });
-
-console.log(route());
 </script>
 
 <template>

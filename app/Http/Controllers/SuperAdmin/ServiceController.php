@@ -16,7 +16,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        return Inertia::render("SuperAdmin/Service/Index", [
+        return Inertia::render("SuperAdmin/Services/Index", [
             "services"=> $services,
         ]);
     }

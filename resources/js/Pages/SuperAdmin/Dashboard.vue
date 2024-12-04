@@ -16,13 +16,18 @@ const props = defineProps({
         default: 0,
         required: true,
     },
+    totalServices: {
+        type: Number,
+        default: 0,
+        required: true,
+    },
 });
 
 Chart.register(ArcElement, Tooltip, Colors, Legend);
 
 const chartData = {
-    labels: ["Barbershops", "Employees"],
-    datasets: [{ data: [props.totalBarbershops, props.totalEmployees] }],
+    labels: ["Barbershops", "Employees", "Services"],
+    datasets: [{ data: [props.totalBarbershops, props.totalEmployees, props.totalServices] }],
 };
 const chartOptions = {
     responsive: true,
@@ -52,7 +57,7 @@ const chartOptions = {
                     <Link :href="route('super_admin.employees.index')" class="flex flex-col">
                         <Button size="lg" color="primary">Employees</Button>
                     </Link>
-                    <Link class="flex flex-col">
+                    <Link :href="route('super_admin.services.index')" class="flex flex-col">
                         <Button size="lg" color="primary">Services</Button>
                     </Link>
                     <Link class="flex flex-col">

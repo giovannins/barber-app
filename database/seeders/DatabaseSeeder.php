@@ -20,14 +20,34 @@ class DatabaseSeeder extends Seeder
         $records = 16;
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Test Super Admin User',
+            'email' => 'superadmin@example.com',
             'password' => bcrypt('password'),
             'role' => 'super_admin',
         ]);
 
+        User::factory()->create([
+            'name' => 'Test Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+            'barbershop_id' => 1,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Test Employee User',
+            'email' => 'employee@example.com',
+            'password' => bcrypt('password'),
+            'barbershop_id' => 1,
+        ]);
+
         Barbershop::factory()->createMany($records);
-        Employee::factory()->createMany($records**2);
-        Service::factory()->createMany($records**2);
+        Employee::factory()->createMany($records * $this->random());
+        Service::factory()->createMany($records * $this->random());
+    }
+
+    private function random()
+    {
+        return random_int(2, 30);
     }
 }

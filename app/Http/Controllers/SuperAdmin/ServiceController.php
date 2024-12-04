@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SuperAdmin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
+use Inertia\Inertia;
 
 class ServiceController extends Controller
 {
@@ -13,7 +15,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return Inertia::render("SuperAdmin/Service/Index", [
+            "services"=> $services,
+        ]);
     }
 
     /**

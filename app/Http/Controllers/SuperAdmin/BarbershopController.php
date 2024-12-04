@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SuperAdmin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBarbershopRequest;
 use App\Http\Requests\UpdateBarbershopRequest;
 use App\Models\Barbershop;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
-use function Laravel\Prompts\form;
 
 class BarbershopController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $barbershops = Barbershop::all();
         return Inertia::render("SuperAdmin/Barbershops/Index", [

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\BarbershopController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SuperAdmin\BarbershopController;
+use App\Http\Controllers\SuperAdmin\DashboardController;
+use App\Http\Controllers\SuperAdmin\EmployeeController;
+use App\Http\Controllers\SuperAdmin\ProfileController;
+use App\Http\Controllers\SuperAdmin\ServiceController;
 use App\Http\Middleware\EnsureSuperAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,6 @@ Route::middleware(['auth', EnsureSuperAdmin::class])->group(function () {
     Route::get('/dashboard/super_admin/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('super_admin.employees.edit');
     Route::put('/dashboard/super_admin/employees/{employee}/update', [EmployeeController::class, 'update'])->name('super_admin.employees.update');
     Route::delete('/dashboard/super_admin/employees/{employee}/delete', [EmployeeController::class, 'destroy'])->name('super_admin.employees.delete');
+
+    Route::get('/dashboard/super_admin/services', [ServiceController::class, 'index'])->name('super_admin.services.index');
 });
